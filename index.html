@@ -64,6 +64,12 @@
       <li><a href="http://munin-monitoring.org/wiki/MultigraphSampleOutput">Multigraph Plugins</a>
       <li><a href="http://munin-monitoring.org/wiki/protocol-multigraph">Multigraph Plugin Protocol</a>
     </ul>
+	<p>
+	<i>PyMunin</i> has been developed for implementing _Multigraph Plugins_ 
+	using <i>Python</i>, but simple single graph plugins are also supported.
+	<p>The initial design of the solution was inspired
+	by <a href="https://github.com/samuel/python-munin">python-munin</a> 
+	by <a href="https://github.com/samuel">samuel</a> (Samuel Stauffer).
 
     <h2>Sample Plugins</h2>
     <p>
@@ -115,14 +121,102 @@
     You can also clone the project with <a href="http://git-scm.com">Git</a>
     by running:
     <pre>$ git clone git://github.com/aouyar/PyMunin</pre>
+    
+    <h2>Installation</h2>
+    <p>
+    Installation of the Libraries
+    <ul>
+	   <li>The <i>./pysysinfo</i> directory should be placed in 
+	   	   <i>Python</i> search path or in the <i>Munin Plugins</i> 
+	   	   directory (ex. <i>/usr/share/munin/plugins</i>).
+	  <li>The <i>./plugins/pymunin</i> directory should be placed in 
+	  	  <i>Python</i> search path or in the <i>Munin Plugins</i> 
+	  	  directory (ex. <i>/usr/share/munin/plugins</i>).
+   </ul>
+   	<p>
+   	Installation of the Plugins
+	<ul>
+		<li>Copy the plugin scripts in the directory <i>./plugins</i> to 
+			the <i>Munin Plugins</i> directory 
+			(ex. <i>/usr/share/munin/plugins</i>) after removing the 
+			file extension '<i>py</i>'.
+		<li>Enable the plugins just like the standard plugins by 
+			creating a symbolic links in the 
+			<i>Munin Plugins Configuration Directory</i> 
+			(<i>/etc/munin/plugins</i>).
+		<li>Configuration files for plugins can be created in the 
+			<i>Munin Plugins Configuration Directory</i> 
+			(<i>/etc/munin/plugin-conf.d</i>). The environment variables 
+			used by the plugin scripts are documented in the header part 
+			of the script code.
+	</ul>  			
 
-    <div class="footer">
-      get the source code on GitHub : 
-      <a href="http://github.com/aouyar/PyMunin">aouyar/PyMunin</a>
-    </div>
+	<h2>Troubleshooting</h2>
+	<p>
+	On error plugins return short error messages by default. Plugin debugging 
+	must be enabled to return full trace for exceptions.
+	
+	Use <i>munin-run</i> with the <i>--pidebug</i> option to enable plugin 
+	debugging. 
+    
+    <h2>Development</h2>
+    <h3>Design</h3>
+    <p>
+    The plugins consist of the following components:
+    <ul>
+    	<li>The _pymunin_ module <i>(./plugins/pymunin)</i> implements the base 
+    		classes for developing Munin plugins.
+    		<ul>
+    			<li>Munin Plugins can be created by subclassing the
+    				<i>MuninPlugin</i> Class.
+    			<li>Each plugin contains one or more graphs implemented by 
+    				<i>MuninGraph</i> Class instances.
+    			<li>The <i>muninMain</i> function implements the entry point for 
+    				Munin Plugins.
+    		</ul>
+    	<li>The plugin logic is implemented in the plugin scripts in 
+    		<i>./plugins</i>.
+    	<li>The actual data retrieval logic is separated from the plugins to 
+    		facilitate code reuse. Individual modules in the directory 
+    		<i>./pysysinfo_</i> implement classes for getting the monitoring 
+    		data and returning them in dictionary objects. The separation of the 
+    		data retrieval logic should facilitate the use of the same code in 
+    		other monitoring solutions.
+    </ul>
+    <h3>Plugin Development</h3>
+    <p>
+    The first step for implementing a new <i>Multigraph Munin Plugin</i> is 
+    developing a new module in _pysysinfo_ for retrieving the monitoring data.
+    <p>
+	The steps for developing the actual plugin script are as follows:
+	<ul>
+		<li>The new plugin can be implemented by extending the the
+			<i>MuninPlugin_</i> class in <i>./plugins/pymunin</i>.
+			<li>The <i>plugin_name</i> property of <i>MuninPlugin</i> class must 
+				be set to the name of the plugin.
+			<li>Graph Objects are registered to the plugin in the constructor of 
+				the plugin class.
+			<li>Code for creating graph objects which are instances of the 
+				<i>MuninGraph</i> class are placed in the constructor of the 
+				plugin class.
+			<li>Code for adding fields to the graph using the <i>addField</i> 
+				method of <i>MuninGraph</i> class is placed in the constructor 
+				of the plugin class.
+			<li>The <i>retrieveVals</i> method of the plugin class is 
+				overwritten to retrieve data points and to associate values with 
+				the graph fields using the <i>setGraphVal</i> method of the
+				<i>MuninPlugin</i> class.
+			<li>The <i>muninMain</i> function in <i>./plugins/pymunin</i> is 
+				called with the plugin class as argument for initializing the 
+				main method of plugin.
+  	</ul>
 
   </div>
 
+  <div class="footer">
+     get the source code on GitHub : 
+     <a href="http://github.com/aouyar/PyMunin">aouyar/PyMunin</a>
+  </div>
   
 </body>
 </html>
