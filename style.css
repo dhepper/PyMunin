@@ -72,7 +72,7 @@ ul.tabbernav li a:visited { color: #667; }
 
 ul.tabbernav li a:hover
 {
- background: #9090ff;
+ background: yellow;
 }
 
 ul.tabbernav li.tabberactive a
@@ -82,7 +82,7 @@ ul.tabbernav li.tabberactive a
 
 ul.tabbernav li.tabberactive a:hover
 {
- background: #9090ff;
+ background: yellow;
  border-color: white;
 }
 
