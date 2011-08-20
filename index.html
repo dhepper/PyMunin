@@ -18,6 +18,7 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
+  <script type="text/javascript" src="./js/tabber.js"></script>
 </head>
 
 <body>
@@ -44,172 +45,190 @@
 	    <p>PyMunin: Python Module for developing Munin Multigraph Monitoring Plugins.
 
 	    <p>Multigraph Plugins for Apache Web Server, Apache Tomcat, 
-	      APC PHP Cache, PHP FPM (Fast Process Manager, Asterisk, FreeSWITCH, 
+	      APC PHP Cache, PHP FPM (Fast Process Manager), Asterisk, FreeSWITCH, 
 	      Memcached, MySQL Database, Nginx, NTP, PostgreSQL Database, 
 	      CPU Utilization, Memory Utilization, Disk Usage, Disk I/O, 
 	      Network Interfaces, etc.
 	      
     </div>
     
-    <h2>Description</h2>
-    <p>
-    Regular Munin Plugins employ one-plugin one-graph logic and require the 
-    execution of a script for data retrieval for each graph.
-    Multigraph plugins permit retrieval of data for multiple graphs in one 
-    execution run one-plugin many-graphs), reducing the processing time and 
-    delay for the fetch cycle significantly.
-    More information on Multigraph Plugins can be found in the 
-    <a href="http://munin-monitoring.org/wiki/">Munin Wiki</a>:
-    <ul>
-      <li><a href="http://munin-monitoring.org/wiki/MultigraphSampleOutput">Multigraph Plugins</a>
-      <li><a href="http://munin-monitoring.org/wiki/protocol-multigraph">Multigraph Plugin Protocol</a>
-    </ul>
-	<p>
-	<i>PyMunin</i> has been developed for implementing _Multigraph Plugins_ 
-	using <i>Python</i>, but simple single graph plugins are also supported.
-	<p>The initial design of the solution was inspired
-	by <a href="https://github.com/samuel/python-munin">python-munin</a> 
-	by <a href="https://github.com/samuel">samuel</a> (Samuel Stauffer).
-
-    <h2>Sample Plugins</h2>
-    <p>
-    <ul>
-      <li><a href="./plugins/tomcat.html">Apache Tomcat Server</a>
-      <li><a href="./plugins/apache.html">Apache Web Server</a>
-      <li><a href="./plugins/asterisk.html">Asterisk Telephony Server</a>
-      <li><a href="./plugins/diskusage.html">Disk Space Usage</a>
-      <li><a href="./plugins/diskio.html">Disk I/O</a>
-      <li><a href="./plugins/freeswitch.html">FreeSWITCH Soft Switch</a>
-      <li><a href="./plugins/memcached.html">Memcached Cache Server</a>
-      <li><a href="./plugins/mysql.html">MySQL Database Server</a>
-      <li><a href="./plugins/netiface.html">Network Interfaces</a>
-      <li><a href="./plugins/nginx.html">Nginx Web Server</a>
-      <li><a href="./plugins/ntp.html">NTP - Time Synchronization Server</a>
-      <li><a href="./plugins/phpapc.html">PHP APC (PHP Cache)</a>
-      <li><a href="./plugins/phpfpm.html">PHP FPM (FastCGI Process Manager)</a>
-      <li><a href="./plugins/postgresql.html">PostgreSQL Database Server</a>
-      <li><a href="./plugins/system.html">System Resources</a>
-      <li><a href="./plugins/wanpipe.html">Sangoma Wanpipe Telephony Interfaces</a>
-    </ul>
+    <div class="tabber">
     
-    <h2>Collaboration</h2>
-    <p>
-    I would be happy to receive suggestions on improving the code for developing 
-    Munin Plugins. You can use the <i>Issues</i> functionality of _GitHub_ to 
-    document problems and to propose improvements. Alternatively you can use the 
-    internal messaging system of <i>GitHub</i> or my e-mail address to contact 
-    me directly.
-    <p>
-    I hope that by sharing the code, the existing plugins will get more testing 
-    and receive improvements, and many more Multigraph Munin Plugins will be 
-    developed collaboratively.
-    <p>
-    I would be glad to receive some sample graphs from anyone using the plugins.
-    
-    <h2>Licensing</h2>
-    <p>
-    PyMunin is copyrighted free software made available under the terms of the 
-    GPL License Version 3 or later.
-    See the file COPYING that acompanies the code for full licensing information.
-    
-    <h2>Download</h2>
-    <p>
-    You can download this project in either
-    <a href="http://github.com/aouyar/PyMunin/zipball/master">zip</a> or
-    <a href="http://github.com/aouyar/PyMunin/tarball/master">tar</a> formats.
-    <p>
-    You can also clone the project with <a href="http://git-scm.com">Git</a>
-    by running:
-    <pre>$ git clone git://github.com/aouyar/PyMunin</pre>
-    
-    <h2>Installation</h2>
-    <p>
-    Installation of the Libraries
-    <ul>
-	   <li>The <i>./pysysinfo</i> directory should be placed in 
-	   	   <i>Python</i> search path or in the <i>Munin Plugins</i> 
-	   	   directory (ex. <i>/usr/share/munin/plugins</i>).
-	  <li>The <i>./plugins/pymunin</i> directory should be placed in 
-	  	  <i>Python</i> search path or in the <i>Munin Plugins</i> 
-	  	  directory (ex. <i>/usr/share/munin/plugins</i>).
-   </ul>
-   	<p>
-   	Installation of the Plugins
-	<ul>
-		<li>Copy the plugin scripts in the directory <i>./plugins</i> to 
-			the <i>Munin Plugins</i> directory 
-			(ex. <i>/usr/share/munin/plugins</i>) after removing the 
-			file extension '<i>py</i>'.
-		<li>Enable the plugins just like the standard plugins by 
-			creating a symbolic links in the 
-			<i>Munin Plugins Configuration Directory</i> 
-			(<i>/etc/munin/plugins</i>).
-		<li>Configuration files for plugins can be created in the 
-			<i>Munin Plugins Configuration Directory</i> 
-			(<i>/etc/munin/plugin-conf.d</i>). The environment variables 
-			used by the plugin scripts are documented in the header part 
-			of the script code.
-	</ul>  			
-
-	<h2>Troubleshooting</h2>
-	<p>
-	On error plugins return short error messages by default. Plugin debugging 
-	must be enabled to return full trace for exceptions.
+	    <div class="tabbertab">
+	    <h2>About</h2>
+	    <p>
+	    Regular Munin Plugins employ one-plugin one-graph logic and require the 
+	    execution of a script for data retrieval for each graph.
+	    Multigraph plugins permit retrieval of data for multiple graphs in one 
+	    execution run one-plugin many-graphs), reducing the processing time and 
+	    delay for the fetch cycle significantly.
+	    More information on Multigraph Plugins can be found in the 
+	    <a href="http://munin-monitoring.org/wiki/">Munin Wiki</a>:
+	    <ul>
+	      <li><a href="http://munin-monitoring.org/wiki/MultigraphSampleOutput">Multigraph Plugins</a>
+	      <li><a href="http://munin-monitoring.org/wiki/protocol-multigraph">Multigraph Plugin Protocol</a>
+	    </ul>
+		<p>
+		<i>PyMunin</i> has been developed for implementing _Multigraph Plugins_ 
+		using <i>Python</i>, but simple single graph plugins are also supported.
+		<p>The initial design of the solution was inspired
+		by <a href="https://github.com/samuel/python-munin">python-munin</a> 
+		by <a href="https://github.com/samuel">samuel</a> (Samuel Stauffer).
+	    
+	    <h2>License</h2>
+	    <p>
+	    PyMunin is copyrighted free software made available under the terms of the 
+	    GPL License Version 3 or later.
+	    See the file COPYING that acompanies the code for full licensing information.
+	    </div>
+	    
+	    <div class="tabbertab">
+	    <h2>Plugins</h2>
+	    
+	    <p>The following plugins are distributed with <i>PyMunin</i>:
+	    <ul>
+	      <li><a href="./plugins/tomcat.html">Apache Tomcat Server</a>
+	      <li><a href="./plugins/apache.html">Apache Web Server</a>
+	      <li><a href="./plugins/asterisk.html">Asterisk Telephony Server</a>
+	      <li><a href="./plugins/diskusage.html">Disk Space Usage</a>
+	      <li><a href="./plugins/diskio.html">Disk I/O</a>
+	      <li><a href="./plugins/freeswitch.html">FreeSWITCH Soft Switch</a>
+	      <li><a href="./plugins/memcached.html">Memcached Cache Server</a>
+	      <li><a href="./plugins/mysql.html">MySQL Database Server</a>
+	      <li><a href="./plugins/netiface.html">Network Interfaces</a>
+	      <li><a href="./plugins/nginx.html">Nginx Web Server</a>
+	      <li><a href="./plugins/ntp.html">NTP - Time Synchronization Server</a>
+	      <li><a href="./plugins/phpapc.html">PHP APC (PHP Cache)</a>
+	      <li><a href="./plugins/phpfpm.html">PHP FPM (FastCGI Process Manager)</a>
+	      <li><a href="./plugins/postgresql.html">PostgreSQL Database Server</a>
+	      <li><a href="./plugins/system.html">System Resources</a>
+	      <li><a href="./plugins/wanpipe.html">Sangoma Wanpipe Telephony Interfaces</a>
+	    </ul>
+	    </div>
+	    
+	    <div class="tabbertab">
+	    <h2>Download</h2>
+	    <p>
+	    You can download this project in either
+	    <a href="http://github.com/aouyar/PyMunin/zipball/master">zip</a> or
+	    <a href="http://github.com/aouyar/PyMunin/tarball/master">tar</a> formats.
+	    <p>
+	    You can also clone the project with <a href="http://git-scm.com">Git</a>
+	    by running:
+	    <pre>$ git clone git://github.com/aouyar/PyMunin</pre>
+	    </div>
+	    
+	    <div class="tabbertab">
+	    <h2>Installation</h2>
+	    <h3>Installation of the Libraries</h3>
+	    <ul>
+		   <li>The <i>./pysysinfo</i> directory should be placed in 
+		   	   <i>Python</i> search path or in the <i>Munin Plugins</i> 
+		   	   directory (ex. <i>/usr/share/munin/plugins</i>).
+		  <li>The <i>./plugins/pymunin</i> directory should be placed in 
+		  	  <i>Python</i> search path or in the <i>Munin Plugins</i> 
+		  	  directory (ex. <i>/usr/share/munin/plugins</i>).
+	    </ul>
+	   	<h3>Installation of the Plugins</h3>
+		<ul>
+			<li>Copy the plugin scripts in the directory <i>./plugins</i> to 
+				the <i>Munin Plugins</i> directory 
+				(ex. <i>/usr/share/munin/plugins</i>) after removing the 
+				file extension '<i>py</i>'.
+			<li>Enable the plugins just like the standard plugins by 
+				creating a symbolic links in the 
+				<i>Munin Plugins Configuration Directory</i> 
+				(<i>/etc/munin/plugins</i>).
+			<li>Configuration files for plugins can be created in the 
+				<i>Munin Plugins Configuration Directory</i> 
+				(<i>/etc/munin/plugin-conf.d</i>). The environment variables 
+				used by the plugin scripts are documented in the header part 
+				of the script code.
+		</ul>
+		</div> 			
 	
-	Use <i>munin-run</i> with the <i>--pidebug</i> option to enable plugin 
-	debugging. 
-    
-    <h2>Development</h2>
-    <h3>Design</h3>
-    <p>
-    The plugins consist of the following components:
-    <ul>
-    	<li>The _pymunin_ module <i>(./plugins/pymunin)</i> implements the base 
-    		classes for developing Munin plugins.
-    		<ul>
-    			<li>Munin Plugins can be created by subclassing the
-    				<i>MuninPlugin</i> Class.
-    			<li>Each plugin contains one or more graphs implemented by 
-    				<i>MuninGraph</i> Class instances.
-    			<li>The <i>muninMain</i> function implements the entry point for 
-    				Munin Plugins.
-    		</ul>
-    	<li>The plugin logic is implemented in the plugin scripts in 
-    		<i>./plugins</i>.
-    	<li>The actual data retrieval logic is separated from the plugins to 
-    		facilitate code reuse. Individual modules in the directory 
-    		<i>./pysysinfo_</i> implement classes for getting the monitoring 
-    		data and returning them in dictionary objects. The separation of the 
-    		data retrieval logic should facilitate the use of the same code in 
-    		other monitoring solutions.
-    </ul>
-    <h3>Plugin Development</h3>
-    <p>
-    The first step for implementing a new <i>Multigraph Munin Plugin</i> is 
-    developing a new module in _pysysinfo_ for retrieving the monitoring data.
-    <p>
-	The steps for developing the actual plugin script are as follows:
-	<ul>
-		<li>The new plugin can be implemented by extending the the
-			<i>MuninPlugin_</i> class in <i>./plugins/pymunin</i>.
-			<li>The <i>plugin_name</i> property of <i>MuninPlugin</i> class must 
-				be set to the name of the plugin.
-			<li>Graph Objects are registered to the plugin in the constructor of 
-				the plugin class.
-			<li>Code for creating graph objects which are instances of the 
-				<i>MuninGraph</i> class are placed in the constructor of the 
-				plugin class.
-			<li>Code for adding fields to the graph using the <i>addField</i> 
-				method of <i>MuninGraph</i> class is placed in the constructor 
-				of the plugin class.
-			<li>The <i>retrieveVals</i> method of the plugin class is 
-				overwritten to retrieve data points and to associate values with 
-				the graph fields using the <i>setGraphVal</i> method of the
-				<i>MuninPlugin</i> class.
-			<li>The <i>muninMain</i> function in <i>./plugins/pymunin</i> is 
-				called with the plugin class as argument for initializing the 
-				main method of plugin.
-  	</ul>
+		<div class="tabbertab">
+		<h2>Troubleshooting</h2>
+		<p>
+		On error plugins return short error messages by default. Plugin 
+		debugging must be enabled to return full trace for exceptions.
+		<p>
+		Use <i>munin-run</i> with the <i>--pidebug</i> option to enable plugin 
+		debugging.
+		</div>
+		
+		<div class="tabbertab">
+		<h2>Collaboration</h2>
+	    <p>
+	    I would be happy to receive suggestions on improving the code for 
+	    developing Munin Plugins. You can use the <i>Issues</i> functionality of 
+	    <i>GitHub</i> to document problems and to propose improvements. 
+	    Alternatively you can use the internal messaging system of <i>GitHub</i> 
+	    or my e-mail address to contact me directly.
+	    <p>
+	    I hope that by sharing the code, the existing plugins will get more 
+	    testing and receive improvements, and many more Multigraph Munin Plugins 
+	    will be developed collaboratively.
+	    <p>
+	    I would be glad to receive some sample graphs from anyone using the 
+	    plugins.
+	    </div>
+	    
+	    <div class="tabbertab">
+	    <h2>Development</h2>
+	    <h3>Design</h3>
+	    <p>
+	    The plugins consist of the following components:
+	    <ul>
+	    	<li>The _pymunin_ module <i>(./plugins/pymunin)</i> implements the base 
+	    		classes for developing Munin plugins.
+	    		<ul>
+	    			<li>Munin Plugins can be created by subclassing the
+	    				<i>MuninPlugin</i> Class.
+	    			<li>Each plugin contains one or more graphs implemented by 
+	    				<i>MuninGraph</i> Class instances.
+	    			<li>The <i>muninMain</i> function implements the entry point for 
+	    				Munin Plugins.
+	    		</ul>
+	    	<li>The plugin logic is implemented in the plugin scripts in 
+	    		<i>./plugins</i>.
+	    	<li>The actual data retrieval logic is separated from the plugins to 
+	    		facilitate code reuse. Individual modules in the directory 
+	    		<i>./pysysinfo_</i> implement classes for getting the monitoring 
+	    		data and returning them in dictionary objects. The separation of the 
+	    		data retrieval logic should facilitate the use of the same code in 
+	    		other monitoring solutions.
+	    </ul>
+	    <h3>Plugin Development</h3>
+	    <p>
+	    The first step for implementing a new <i>Multigraph Munin Plugin</i> is 
+	    developing a new module in _pysysinfo_ for retrieving the monitoring data.
+	    <p>
+		The steps for developing the actual plugin script are as follows:
+		<ul>
+			<li>The new plugin can be implemented by extending the the
+				<i>MuninPlugin_</i> class in <i>./plugins/pymunin</i>.
+				<li>The <i>plugin_name</i> property of <i>MuninPlugin</i> class must 
+					be set to the name of the plugin.
+				<li>Graph Objects are registered to the plugin in the constructor of 
+					the plugin class.
+				<li>Code for creating graph objects which are instances of the 
+					<i>MuninGraph</i> class are placed in the constructor of the 
+					plugin class.
+				<li>Code for adding fields to the graph using the <i>addField</i> 
+					method of <i>MuninGraph</i> class is placed in the constructor 
+					of the plugin class.
+				<li>The <i>retrieveVals</i> method of the plugin class is 
+					overwritten to retrieve data points and to associate values with 
+					the graph fields using the <i>setGraphVal</i> method of the
+					<i>MuninPlugin</i> class.
+				<li>The <i>muninMain</i> function in <i>./plugins/pymunin</i> is 
+					called with the plugin class as argument for initializing the 
+					main method of plugin.
+	  	</ul>
+	  	</div>
+	  	
+    </div>
 
   </div>
 
