@@ -143,7 +143,7 @@
 	      <li><a href="http://munin-monitoring.org/wiki/protocol-multigraph">Multigraph Plugin Protocol</a>
 	    </ul>
 		<p>
-		<i>PyMunin</i> has been developed for implementing _Multigraph Plugins_ 
+		<i>PyMunin</i> has been developed for implementing <i>Multigraph Plugins</i> 
 		using <i>Python</i>, but simple single graph plugins are also supported.
 		<p>The initial design of the solution was inspired
 		by <a href="https://github.com/samuel/python-munin">python-munin</a> 
@@ -255,7 +255,7 @@
 	    <p>
 	    The plugins consist of the following components:
 	    <ul>
-	    	<li>The _pymunin_ module <i>(./plugins/pymunin)</i> implements the base 
+	    	<li>The <i>pymunin</i> module <i>(./plugins/pymunin)</i> implements the base 
 	    		classes for developing Munin plugins.
 	    		<ul>
 	    			<li>Munin Plugins can be created by subclassing the
@@ -269,7 +269,7 @@
 	    		<i>./plugins</i>.
 	    	<li>The actual data retrieval logic is separated from the plugins to 
 	    		facilitate code reuse. Individual modules in the directory 
-	    		<i>./pysysinfo_</i> implement classes for getting the monitoring 
+	    		<i>./pysysinfo</i> implement classes for getting the monitoring 
 	    		data and returning them in dictionary objects. The separation of the 
 	    		data retrieval logic should facilitate the use of the same code in 
 	    		other monitoring solutions.
@@ -277,12 +277,13 @@
 	    <h3>Plugin Development</h3>
 	    <p>
 	    The first step for implementing a new <i>Multigraph Munin Plugin</i> is 
-	    developing a new module in _pysysinfo_ for retrieving the monitoring data.
+	    developing a new module in <i>pysysinfo</i> for retrieving the monitoring 
+	    data.
 	    <p>
 		The steps for developing the actual plugin script are as follows:
 		<ul>
 			<li>The new plugin can be implemented by extending the the
-				<i>MuninPlugin_</i> class in <i>./plugins/pymunin</i>.
+				<i>MuninPlugin</i> class in <i>./plugins/pymunin</i>.
 				<li>The <i>plugin_name</i> property of <i>MuninPlugin</i> class must 
 					be set to the name of the plugin.
 				<li>Graph Objects are registered to the plugin in the constructor of 
