@@ -4,8 +4,8 @@
   <title>PyMunin - Python Multigraph Munin Plugins</title>
   <meta charset='utf-8'>
   <meta http-equiv="Content-Language" content="en">
-  <meta name="description" content="PyMunin - Python Module for Munin Multigraph Monitoring Plugins. Plugins for Apache, Tomcat, Asterisk, Disk I/O, Disk Usage, FreeSWITCH, Memcached, MySQL, Network, Nginx, NTP, PHP APC, PHP FPM, PostgreSQL, System CPU and Memory Utilization, VM Paging and Swapping, etc.">
-  <meta name="keywords" content="PyMunin, Munin, Plugin, Python, Multigraph, Monitoring, Apache, Tomcat, PHP, APC, FPM, Asterisk, FreeSWITCH, Memcached, MySQL, Network, Nginx, NTP, PostgreSQL, System, CPU, Memory, Disk Usage, Disk I/O, Processes, Forks, Interrupts">
+  <meta name="description" content="PyMunin - Python Module for Munin Multigraph Monitoring Plugins. Plugins for Apache, Tomcat, Asterisk, Disk I/O, Disk Usage, FreeSWITCH, Memcached, MySQL, Network Interfaces, Network Connections, Nginx, NTP, PHP APC, PHP FPM, PostgreSQL, System CPU and Memory Utilization, VM Paging and Swapping, etc.">
+  <meta name="keywords" content="PyMunin, Munin, Plugin, Python, Multigraph, Monitoring, Apache, Tomcat, PHP, APC, FPM, Asterisk, FreeSWITCH, Memcached, MySQL, Network, Interfaces, Connections, Nginx, NTP, PostgreSQL, System, CPU, Memory, Disk Usage, Disk I/O, Processes, Forks, Interrupts">
   <link href="style.css" rel="stylesheet" type="text/css">
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -58,6 +58,14 @@
 	    <h2>Updates</h2>
 	    <p>
 	    <table summary="Updates" cellpadding=10px>
+	    	<tr>
+	    		<td valign=top><b>November 28, 2011</b></td>
+	    		<td valign=top>
+	    			Added graph for monitoring number of connections to server
+	    			ports to netstats plugin. Refactoring of netstat and 
+	    			processes modules to move common code to util module.
+	    		</td>
+	    	</tr>
 	    	<tr>
 	    		<td valign=top><b>November 27, 2011</b></td>
 	    		<td valign=top>
@@ -177,6 +185,7 @@
 	      <li><a href="./plugins/memcached.html">Memcached Cache Server</a>
 	      <li><a href="./plugins/mysql.html">MySQL Database Server</a>
 	      <li><a href="./plugins/netiface.html">Network Interfaces</a>
+	      <li><a href="./plugins/netstats.html">Network Connections</a>
 	      <li><a href="./plugins/nginx.html">Nginx Web Server</a>
 	      <li><a href="./plugins/ntp.html">NTP - Time Synchronization Server</a>
 	      <li><a href="./plugins/phpapc.html">PHP APC (PHP Cache)</a>
