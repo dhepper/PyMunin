@@ -59,6 +59,14 @@
 	    <p>
 	    <table summary="Updates" cellpadding=10px>
 	    	<tr>
+	    		<td valign=top><b>January 22, 2011</b></td>
+	    		<td valign=top>
+	    			Thanks to contributions by (Mark Lavin) PyMunin is much more
+	    			easier to install; the updated code is pip installable and 
+	    			is published in PyPI.
+	    		</td>
+	    	</tr>
+	    	<tr>
 	    		<td valign=top><b>November 28, 2011</b></td>
 	    		<td valign=top>
 	    			Added graph for monitoring number of connections to server
@@ -158,11 +166,23 @@
 	      <li><a href="http://munin-monitoring.org/wiki/protocol-multigraph">Multigraph Plugin Protocol</a>
 	    </ul>
 		<p>
+		
 		<i>PyMunin</i> has been developed for implementing <i>Multigraph Plugins</i> 
 		using <i>Python</i>, but simple single graph plugins are also supported.
-		<p>The initial design of the solution was inspired
-		by <a href="https://github.com/samuel/python-munin">python-munin</a> 
-		by <a href="https://github.com/samuel">samuel</a> (Samuel Stauffer).
+		
+		<h2>Contributions</h2>
+	    <p>
+	    <ul>
+	    	<li>
+	    		Initial packaging of the code was done 
+	    		by <a href="https://github.com/mlavin">mlavin</a>) (Mark Lavin).
+	    		PyMunin is installable pip or easy_install thanks to Mark. :-)
+	    	</li>
+	    	<li>The initial design of the solution was inspired
+	    		by <a href="https://github.com/samuel/python-munin">python-munin</a> 
+	    		by <a href="https://github.com/samuel">samuel</a> (Samuel Stauffer).		
+	    	</li>
+	    </ul>	
 	    
 	    <h2>License</h2>
 	    <p>
@@ -200,32 +220,80 @@
 	    <div class="tabbertab">
 	    <h2>Download</h2>
 	    <p>
-	    You can download this project in either
+	    New versions of the code will be published for download at 
+	    <a href="http://pypi.python.org/pypi/PyMunin">PyPI - the Python Package Index</a>
+	    periodically.
+	    <p>
+	    You can download the latest development version of this code in either
 	    <a href="http://github.com/aouyar/PyMunin/zipball/master">zip</a> or
 	    <a href="http://github.com/aouyar/PyMunin/tarball/master">tar</a> formats.
 	    <p>
-	    You can also clone the project with <a href="http://git-scm.com">Git</a>
-	    by running:
-	    <pre>$ git clone git://github.com/aouyar/PyMunin</pre>
+	    You can also get the latest development version of the code by cloning the  
+	    <a href="http://git-scm.com">Git</a>
+	    repository for the project by running:
+	    <pre>git clone git://github.com/aouyar/PyMunin</pre>
 	    </div>
 	    
 	    <div class="tabbertab">
 	    <h2>Installation</h2>
-	    <h3>Installation of the Libraries</h3>
+	    
+	    <h3>Automated Installation</h3>
+	    <p>
+	    The code can be downloaded and installed automatically using 
+	    <a href="http://www.pip-installer.org/">pip</a> or
+	    the user can download and uncompress the code and execute the 
+	    the included <i>setup.py</i> script for installation:
+	    
+	    	<li>To install the latest version published in 
+	    		<a href="http://pypi.python.org/pypi/PyMunin">PyPI - the Python Package Index</a>
+	    		using <a href="http://www.pip-installer.org/">pip</a> execute:
+	    		<pre>pip install PyMunin</pre>
+	    	</li>
+	    	<li>To install the latest development version using 
+	    		<a href="http://www.pip-installer.org/">pip</a> execute::
+	    		<pre>pip install git+https://github.com/aouyar/PyMunin.git#egg=PyMunin</pre>
+	    	</li>
+	    	<li>To install using the <i>setup.py</i> script included in the
+	    		distribution once the code is downloaded and uncompressed:
+			    <pre>./setup.py install</pre>
+			</li>
+	    </ul>
+	     
+	    This will install _pymunin_ and _pysysinfo_ in <i>Python</i> site packages.
+	    The plugins will be unpacked as console scripts into the install <i>bin</i>
+		directory. Each of the scripts will be prefixed with pymunin 
+		(i.e. pymunin-apachestats) to avoid name collisions with other binaries.
+		The location will be <i>/usr/local/bin/</i> if installed globally or 
+		<i>$VIRTUAL_ENV/bin</i> if installed in with 
+		<a href="http://www.virtualenv.org/">virtualenv</a>.
+		<p>
+		The plugins will automatically be installed in 
+		<i>Munin Plugins</i> directory (<i>/usr/share/munin/plugins</i>)
+		if the installation process is executed with a privileged user.
+		If the installation process fails because of permissions problems 
+		<i>pymunin-install</i> script will be  created for copying the plugins 
+		from the <i>bin</i> directory to <i>/usr/share/munin/plugins</i>. The 
+		pymunin prefix will be dropped in the process. 
+	    
+	    <h3>Manual Installation</h3>
+	    <h4>Installation of the Libraries</h4>
 	    <ul>
 		   <li>The <i>./pysysinfo</i> directory should be placed in 
 		   	   <i>Python</i> search path or in the <i>Munin Plugins</i> 
-		   	   directory (ex. <i>/usr/share/munin/plugins</i>).
-		  <li>The <i>./plugins/pymunin</i> directory should be placed in 
+		   	   directory (<i>/usr/share/munin/plugins</i>).
+		  <li>The <i>./pymunin</i> directory should be placed in 
 		  	  <i>Python</i> search path or in the <i>Munin Plugins</i> 
-		  	  directory (ex. <i>/usr/share/munin/plugins</i>).
+		  	  directory (<i>/usr/share/munin/plugins</i>).
 	    </ul>
-	   	<h3>Installation of the Plugins</h3>
+	   	<h4>Installation of the Plugins</h4>
 		<ul>
-			<li>Copy the plugin scripts in the directory <i>./plugins</i> to 
+			<li>Copy the plugin scripts in the directory <i>./pymunin/plugins</i> to 
 				the <i>Munin Plugins</i> directory 
 				(ex. <i>/usr/share/munin/plugins</i>) after removing the 
 				file extension '<i>py</i>'.
+		</ul>
+		<h2>Configuration of the Plugins</h2>
+		<ul>
 			<li>Enable the plugins just like the standard plugins by 
 				creating a symbolic links in the 
 				<i>Munin Plugins Configuration Directory</i> 
