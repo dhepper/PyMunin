@@ -38,6 +38,32 @@
       <li>netstat_conn_server
     </ul>
     
+    <h2>Environment Variables</h2>
+    <p>
+    <table class="TableAttrs" summary="Enviroment variables used by the plugin.">
+    	<tr>
+    		<th>Variable</th>
+    		<th>Description</th>
+    	</tr>
+    	<tr>
+    		<td>list_server_ports</td>
+    		<td>Comma separated list of Name:PortNumber tuples for services
+                that are to be monitored in the netstat_server_conn graph.<br>
+                A service can be associated to multiple port numbers separated 
+                by colon.</td>
+    	</tr>
+    	<tr>
+    		<td>include_graphs</td>
+    		<td>Comma separated list of enabled graphs.<br>
+    			(All graphs enabled by default.)
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>exclude_graphs</td>
+    		<td>Comma separated list of disabled graphs.</td>
+    	</tr>
+    </table>
+    
   </div>
   
 </body>

@@ -40,6 +40,59 @@
       <li>php_apc_reqs_usercache
       <li>php_apc_expunge
     </ul>
+    <p>The PHP script <i>apcinfo.php</i> must be placed somewhere in the 
+    	document root and have access permissions from localhost to permit
+    	retrieval of stats from <i>APC</i>. The script can be found int the
+    	external utilities folder (<i>./ext</i>) folder of <i>PyMunin</i>
+    	distribution.
+    
+    <h2>Environment Variables</h2>
+    <p>
+    <table class="TableAttrs" summary="Enviroment variables used by the plugin.">
+    	<tr>
+    		<th>Variable</th>
+    		<th>Description</th>
+    	</tr>
+    	<tr>
+    		<td>host</td>
+    		<td>Web Server Host.<br>
+    			(Default: 127.0.0.1)</td>
+    	</tr>
+    	<tr>
+    		<td>port</td>
+    		<td>Web Server Port.<br>
+    			(Default: 80, SSL: 443)</td>
+    	</tr>
+    	<tr>
+    		<td>user</td>
+    		<td>User in case authentication is required for access to APC Status 
+    			page.</td>
+    	</tr>
+    	<tr>
+    		<td>password</td>
+    		<td>Password in case authentication is required for access to APC 
+    			Status page.</td>
+    	</tr>
+    	<tr>
+    		<td>monpath</td>
+    		<td>APC status script path relative to Document Root.</td>
+    	</tr>
+    	<tr>
+    		<td>ssl</td>
+    		<td>Use SSL if yes.<br>
+    			(Default: no)</td>
+    	</tr>
+    	<tr>
+    		<td>include_graphs</td>
+    		<td>Comma separated list of enabled graphs.<br>
+    			(All graphs enabled by default.)
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>exclude_graphs</td>
+    		<td>Comma separated list of disabled graphs.</td>
+    	</tr>
+    </table>
 
   </div>
   

@@ -66,7 +66,74 @@
         <td><img src="./img/asterisk_channels-day.png"  alt="Asterisk Channels"></td>
         <td><img src="./img/asterisk_voip_codecs-day.png" alt="Asterisk VoIP Codecs"></td>
       </tr>
-    </table>  
+    </table>
+    
+    <h2>Environment Variables</h2>
+    <p>
+    <table class="TableAttrs" summary="Enviroment variables used by the plugin.">
+    	<tr>
+    		<th>Variable</th>
+    		<th>Description</th>
+    	</tr>
+    	<tr>
+    		<td>amihost</td>
+    		<td>IP of Asterisk Server.<br>
+    			(Default: 127.0.0.1)</td>
+    	</tr>
+    	<tr>
+    		<td>amiport</td>
+    		<td>Asterisk Manager Interface Port.<br>
+    			(Default: 5038)</td>
+    	</tr>
+    	<tr>
+    		<td>amiuser</td>
+    		<td>Asterisk Manager Interface User.</td>
+    	</tr>
+    	<tr>
+    		<td>amipass</td>
+    		<td>Asterisk Manager Interface Password.</td>
+    	</tr>
+    	<tr>
+    		<td>list_channels</td>
+    		<td>List of channels that will be shown in channel stats.<br>
+                (Default: dahdi,zap,sip',iax2,local)</td>
+    	</tr>
+    	<tr>
+    		<td>list_codecs</td>
+    		<td>List of codecs that will be shown in VoIP channel stats.<br>
+                (Default: alaw,ulaw,gsm,g729)<br>
+                Any codec that is not in the list will be counted as 'other'.</td>
+    	</tr>
+    	<tr>
+    		<td>list_trunks</td>
+    		<td>Comma separated search expressions of the following formats:
+    			<ul>
+    				<li>"Trunk Name"="Regular Expr"
+    					<li>"Trunk Name"="Regular Expr with Named Group 'num'"="MIN"-"MAX"	
+    			</ul>
+                Check Python Regular Expressions docs for help on writing 
+                regular expressions:http://docs.python.org/library/re.html</td>
+    	</tr>
+    	<tr>
+    		<td>include_queues</td>
+    		<td>Comma separated list of queues to include in  graphs.<br>
+                  (All queues included by default.)</td>
+    	</tr>
+    	<tr>
+    		<td>exclude_queues</td>
+    		<td>Comma separated list of queues to exclude from graphs.</td>
+    	</tr>
+    	<tr>
+    		<td>include_graphs</td>
+    		<td>Comma separated list of enabled graphs.<br>
+    			(All graphs enabled by default.)
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>exclude_graphs</td>
+    		<td>Comma separated list of disabled graphs.</td>
+    	</tr>    
+    </table>
     
   </div>
   

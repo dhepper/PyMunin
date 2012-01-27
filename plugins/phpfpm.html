@@ -38,6 +38,58 @@
       <li>php_fpm_connections
       <li>php_fpm_processes
     </ul>
+    <p>The <i>PHP FPM</i> status page must be configured and it must be 
+    	accesible through the web server.
+    
+    <h2>Environment Variables</h2>
+    <p>
+    <table class="TableAttrs" summary="Enviroment variables used by the plugin.">
+    	<tr>
+    		<th>Variable</th>
+    		<th>Description</th>
+    	</tr>
+    	<tr>
+    		<td>host</td>
+    		<td>Web Server Host.<br>
+    			(Default: 127.0.0.1)</td>
+    	</tr>
+    	<tr>
+    		<td>port</td>
+    		<td>Web Server Port.<br>
+    			(Default: 80, SSL: 443)</td>
+    	</tr>
+    	<tr>
+    		<td>user</td>
+    		<td>User in case authentication is required for access to PHP FPM 
+    			status page.</td>
+    	</tr>
+    	<tr>
+    		<td>password</td>
+    		<td>Password in case authentication is required for access to PHP 
+    			FPM status page.</td>
+    	</tr>
+    	<tr>
+    		<td>monpath</td>
+    		<td>PHP FPM status page path relative to Document Root.<br>
+    			(Default: fpm_status.php)
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>ssl</td>
+    		<td>Use SSL if yes.<br>
+    			(Default: no)</td>
+    	</tr>
+    	<tr>
+    		<td>include_graphs</td>
+    		<td>Comma separated list of enabled graphs.<br>
+    			(All graphs enabled by default.)
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>exclude_graphs</td>
+    		<td>Comma separated list of disabled graphs.</td>
+    	</tr>
+    </table>
 
   </div>
   

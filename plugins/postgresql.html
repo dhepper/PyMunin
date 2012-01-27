@@ -72,6 +72,69 @@
         <td><img src="./img/pg_checkpoints-day.png" alt="PostgreSQL Checkpoints"></td>
       </tr>
     </table>
+    
+	<h2>Environment Variables</h2>
+    <p>
+    <table class="TableAttrs" summary="Enviroment variables used by the plugin.">
+    	<tr>
+    		<th>Variable</th>
+    		<th>Description</th>
+    	</tr>
+    	<tr>
+    		<td>host</td>
+    		<td>PostgreSQL Server IP.<br>
+    			(Defaults to UNIX socket if not provided.)</td>
+    	</tr>
+    	<tr>
+    		<td>port</td>
+    		<td>PostgreSQL Server Port<br>
+    			(Defaults to 5432 for network connections.)</td>
+    	</tr>
+    	<tr>
+    		<td>database</td>
+    		<td>PostgreSQL Database for monitoring connection.<br>
+    			(The default is the login the for connecting user.</td>
+    	</tr>
+    	<tr>
+    		<td>user</td>
+    		<td>Database User Name<br>
+    			(The default is the login of OS user for UNIX sockets.
+    			Must be specified for network connections.)
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>password</td>
+    		<td>Database User Password<br>
+    			(Attempt login without password by default.)
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>include_db</td>
+    		<td>Comma separated list of databases to include in detail graphs.<br>
+    			(All enabled by default.)</td>
+    	</tr>
+    	<tr>
+    		<td>exclude_db</td>
+    		<td>Comma separated list of databases to exclude from detail 
+    			graphs.</td>
+    	</tr>
+    	<tr>
+    		<td>detail_graphs</td>
+    		<td>Enable (on) / disable (off) detail graphs.<br>
+    			(Disabled by default.)</td>
+    	</tr>
+    	<tr>
+    		<td>include_graphs</td>
+    		<td>Comma separated list of enabled graphs.<br>
+    			(All graphs enabled by default.)
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>exclude_graphs</td>
+    		<td>Comma separated list of disabled graphs.</td>
+    	</tr>
+    </table>
+
 
   </div>
   

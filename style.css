@@ -47,7 +47,7 @@ ul.tabbernav
  margin:0;
  padding: 3px 0;
  border-bottom: 3px solid #a0a0ff;
- font-style: bold;
+ font-weight: bold;
  font-size: 1em;
 }
 
@@ -64,7 +64,7 @@ ul.tabbernav li a
  border: 3px solid #a0a0ff;
  background: #d0d0ff;
  text-decoration: none;
- font-style: bold;
+ font-weight: bold;
 }
 
 ul.tabbernav li a:link { color: #448; }
@@ -107,3 +107,18 @@ ul.tabbernav li.tabberactive a:hover
  /* overflow:auto; */
 }
 
+
+table.TableAttrs {
+ border-collapse: collapse;
+}
+
+table.TableAttrs td {
+ border: 1px #a0a0ff solid;
+ padding: .3em;
+}
+
+table.TableAttrs th {
+ border: 1px #a0a0ff solid;
+ padding: .3em;
+ color: #a0a0ff;
+}

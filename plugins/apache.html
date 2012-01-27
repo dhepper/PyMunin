@@ -25,7 +25,7 @@
   <div id="container">
 
     <h1><a href="../index.html">PyMunin</a>
-      <span class="small">Apache Web  Server Plugin</span></h1>
+      <span class="small">Apache Web Server Plugin</span></h1>
 
     <div class="description">
 	    PyMunin Multigraph Munin Plugin for monitoring Apache Web Server.
@@ -49,8 +49,58 @@
         <tr valign=top>
           <td><img src="./img/apache_workers-day.png" alt="Apache Workers"></td>
         </tr>
-      </table>  
-
+      </table>
+      
+    <h2>Environment Variables</h2>
+    <p>
+    <table class="TableAttrs" summary="Enviroment variables used by the plugin.">
+    	<tr>
+    		<th>Variable</th>
+    		<th>Description</th>
+    	</tr>
+    	<tr>
+    		<td>host</td>
+    		<td>Apache Web Server Host.<br>
+    			(Default: 127.0.0.1)</td>
+    	</tr>
+    	<tr>
+    		<td>port</td>
+    		<td>Apache Web Server Port.
+    			(Default: 80, SSL: 443)</td>
+    	</tr>
+    	<tr>
+    		<td>user</td>
+    		<td>User in case authentication is required for access to 
+    			server-status page.</td>
+    	</tr>
+    	<tr>
+    		<td>password</td>
+    		<td>User in case authentication is required for access to 
+    			server-status page.</td>
+    	</tr>
+  	    <tr>
+    		<td>statuspath</td>
+    		<td>Path for Apache Web Server Status Page.<br>
+    			(Default: server-status)
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>ssl</td>
+    		<td>Use SSL if yes.<br>
+    			(Default: no)</td>
+    	</tr>
+    	<tr>
+    		<td>include_graphs</td>
+    		<td>Comma separated list of enabled graphs.<br>
+    			(All graphs enabled by default.)
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>exclude_graphs</td>
+    		<td>Comma separated list of disabled graphs.</td>
+    	</tr>    
+    </table>
+    
   </div>
   
 </body>

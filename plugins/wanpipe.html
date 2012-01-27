@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PyMunin - Wanpipe Multigraph Munin Plugin</title>
+  <title>PyMunin - Sangoma Wanpipe Multigraph Munin Plugin</title>
   <meta charset='utf-8'>
   <meta http-equiv="Content-Language" content="en">
   <meta name="description" content="PyMunin Munin Multigraph Monitoring Plugin for Sangoma Wanpipe Interfaces in Python.">
@@ -25,13 +25,14 @@
   <div id="container">
 
     <h1><a href="../index.html">PyMunin</a>
-      <span class="small">Wanpipe Plugin</span></h1>
+      <span class="small">Sangoma Wanpipe Telephony Interfaces Plugin</span></h1>
 
     <div class="description">
-	    PyMunin Multigraph Munin Plugin for monitoring Sangoma Wanpipe Interfaces.
+	    PyMunin Multigraph Munin Plugin for monitoring Sangoma Wanpipe Digital 
+	    Telephony Interfaces.
     </div>
 
-    <h2>Wanpipe Plugin - wanpipe</h2>
+    <h2>Wanpipe Plugin - wanpipestats</h2>
     <p>The multigraph plugin implements the following graphs:
     <ul>
       <li>wanpipe_traffic
@@ -39,6 +40,34 @@
       <li>wanpipe_pri_errors_
       <li>wanpipe_pri_rxlevel
     </ul>
+    
+    <h2>Environment Variables</h2>
+    <p>
+    <table class="TableAttrs" summary="Enviroment variables used by the plugin.">
+    	<tr>
+    		<th>Variable</th>
+    		<th>Description</th>
+    	</tr>
+    	<tr>
+    		<td>include_ifaces</td>
+    		<td>Comma separated list of wanpipe interfaces to include in graphs.<br>
+    			(All Wanpipe Interfaces are monitored by default.)</td>
+    	</tr>
+    	<tr>
+    		<td>exclude_ifaces</td>
+    		<td>Comma separated list of wanpipe interfaces to exclude from graphs.</td>
+    	</tr>
+    	<tr>
+    		<td>include_graphs</td>
+    		<td>Comma separated list of enabled graphs.<br>
+    			(All graphs enabled by default.)
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>exclude_graphs</td>
+    		<td>Comma separated list of disabled graphs.</td>
+    	</tr>
+    </table>
     
   </div>
   

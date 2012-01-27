@@ -59,6 +59,14 @@
 	    <p>
 	    <table summary="Updates" cellpadding=10px>
 	    	<tr>
+	    		<td valign=top><b>January 26, 2011</b></td>
+	    		<td valign=top>
+	    			Updated the documentation for the project to facilitate
+	    			installation and configuration of the plugins and the
+	    			development of new plugins based on <i>PyMunin</i>.
+	    		</td>
+	    	</tr>
+	    	<tr>
 	    		<td valign=top><b>January 22, 2011</b></td>
 	    		<td valign=top>
 	    			Thanks to contributions by (Mark Lavin) PyMunin is much more
@@ -165,10 +173,14 @@
 	      <li><a href="http://munin-monitoring.org/wiki/MultigraphSampleOutput">Multigraph Plugins</a>
 	      <li><a href="http://munin-monitoring.org/wiki/protocol-multigraph">Multigraph Plugin Protocol</a>
 	    </ul>
-		<p>
 		
+		<p>
 		<i>PyMunin</i> has been developed for implementing <i>Multigraph Plugins</i> 
 		using <i>Python</i>, but simple single graph plugins are also supported.
+		
+		<p>The code for retrieval of data is totally separated from Munin 
+		specific code. The modules for data retrieval in <i>./pysysinfo</i> can
+		be used independently of <i>Munin</i> in other monitoring solutions.
 		
 		<h2>Contributions</h2>
 	    <p>
@@ -243,7 +255,7 @@
 	    <a href="http://www.pip-installer.org/">pip</a> or
 	    the user can download and uncompress the code and execute the 
 	    the included <i>setup.py</i> script for installation:
-	    
+	    <ul>
 	    	<li>To install the latest version published in 
 	    		<a href="http://pypi.python.org/pypi/PyMunin">PyPI - the Python Package Index</a>
 	    		using <a href="http://www.pip-installer.org/">pip</a> execute:
@@ -292,19 +304,24 @@
 				(ex. <i>/usr/share/munin/plugins</i>) after removing the 
 				file extension '<i>py</i>'.
 		</ul>
-		<h2>Configuration of the Plugins</h2>
-		<ul>
-			<li>Enable the plugins just like the standard plugins by 
-				creating a symbolic links in the 
-				<i>Munin Plugins Configuration Directory</i> 
-				(<i>/etc/munin/plugins</i>).
-			<li>Configuration files for plugins can be created in the 
-				<i>Munin Plugins Configuration Directory</i> 
-				(<i>/etc/munin/plugin-conf.d</i>). The environment variables 
-				used by the plugin scripts are documented in the header part 
-				of the script code.
-		</ul>
-		</div> 			
+		</div>
+		
+		<div class="tabbertab">
+		<h2>Configuration</h2>
+		<p>
+		<h3>Activating the Plugins</h3>
+		<p>Enable the plugins just like the standard plugins by creating 
+		symbolic links in the <i>Munin Plugins Configuration Directory</i> 
+		(<i>/etc/munin/plugins</i>).
+		<h3>Configuration of the Plugins</h3>
+		<p>
+		Configuration files for plugins can be created in the 
+		<i>Munin Plugins Configuration Directory</i> 
+		(<i>/etc/munin/plugin-conf.d</i>).
+		<p>
+		The environment variables used by the plugin scripts are documented in 
+		the header part of the plugin modules in <i>./pymunin/plugins</i>.
+		</div>
 	
 		<div class="tabbertab">
 		<h2>Troubleshooting</h2>
@@ -354,37 +371,43 @@
 	    	<li>The actual data retrieval logic is separated from the plugins to 
 	    		facilitate code reuse. Individual modules in the directory 
 	    		<i>./pysysinfo</i> implement classes for getting the monitoring 
-	    		data and returning them in dictionary objects. The separation of the 
-	    		data retrieval logic should facilitate the use of the same code in 
-	    		other monitoring solutions.
+	    		data and returning them as dictionary objects. The separation of 
+	    		the data retrieval logic should facilitate the use of the code 
+	    		in other monitoring solutions.
+	    	<li>Common utility classes and methods used by various data 
+	    		retrieval modules are placed in the util module in
+	    		<i>./pysysinfo</i>. 
 	    </ul>
 	    <h3>Plugin Development</h3>
 	    <p>
 	    The first step for implementing a new <i>Multigraph Munin Plugin</i> is 
-	    developing a new module in <i>pysysinfo</i> for retrieving the monitoring 
-	    data.
+	    developing a new module in <i>./pysysinfo</i> for retrieving the 
+	    monitoring data.
 	    <p>
 		The steps for developing the actual plugin script are as follows:
 		<ul>
-			<li>The new plugin can be implemented by extending the the
-				<i>MuninPlugin</i> class in <i>./plugins/pymunin</i>.
-				<li>The <i>plugin_name</i> property of <i>MuninPlugin</i> class must 
-					be set to the name of the plugin.
-				<li>Graph Objects are registered to the plugin in the constructor of 
-					the plugin class.
-				<li>Code for creating graph objects which are instances of the 
-					<i>MuninGraph</i> class are placed in the constructor of the 
-					plugin class.
-				<li>Code for adding fields to the graph using the <i>addField</i> 
-					method of <i>MuninGraph</i> class is placed in the constructor 
-					of the plugin class.
-				<li>The <i>retrieveVals</i> method of the plugin class is 
-					overwritten to retrieve data points and to associate values with 
-					the graph fields using the <i>setGraphVal</i> method of the
-					<i>MuninPlugin</i> class.
-				<li>The <i>muninMain</i> function in <i>./plugins/pymunin</i> is 
-					called with the plugin class as argument for initializing the 
-					main method of plugin.
+			<li>Plugin scripts are placed in <i>./pymunin/plugins</i> by 
+				default.
+			<li>New plugins are implemented by extending the <i>MuninPlugin</i> 
+				class in <i>./pymunin</i>. You can check the plugin scripts in
+				<i>./pymunin/plugins</i> for working examples.
+			<li>The <i>plugin_name</i> property of <i>MuninPlugin</i> class 
+				must be set to the name of the plugin.
+			<li>Graph Objects are registered to the plugin in the constructor 
+				of the plugin class.
+			<li>Code for creating graph objects which are instances of the 
+				<i>MuninGraph</i> class are placed in the constructor of the 
+				plugin class.
+			<li>Code for adding fields to the graph using the <i>addField</i> 
+				method of <i>MuninGraph</i> class is placed in the constructor 
+				of the plugin class.
+			<li>The <i>retrieveVals</i> method of the plugin class is 
+				overwritten to retrieve data points and to associate values with 
+				the graph fields using the <i>setGraphVal</i> method of the
+				<i>MuninPlugin</i> class.
+			<li>The <i>muninMain</i> function in <i>./plugins/pymunin</i> is 
+				called with the plugin class as argument for initializing the 
+				main method of plugin.
 	  	</ul>
 	  	</div>
 	  	
