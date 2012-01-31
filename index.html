@@ -182,8 +182,17 @@
 		specific code. The modules for data retrieval in <i>./pysysinfo</i> can
 		be used independently of <i>Munin</i> in other monitoring solutions.
 		
-		<h2>Contributions</h2>
+	    <h2>License</h2>
 	    <p>
+	    PyMunin is copyrighted free software made available under the terms of the 
+	    GPL License Version 3 or later.
+	    See the file COPYING that acompanies the code for full licensing information.
+
+		<h2>Credits</h2>
+	    <p><i>PyMunin</i> has been developed by 
+	    	<a href="https://github.com/aouyar">aouyar</a> (Ali Onur Uyar).
+	    <p>Some of the people that have knowingly or unknowingly contributed 
+	    with the development are:
 	    <ul>
 	    	<li>
 	    		Initial packaging of the code was done 
@@ -194,13 +203,15 @@
 	    		by <a href="https://github.com/samuel/python-munin">python-munin</a> 
 	    		by <a href="https://github.com/samuel">samuel</a> (Samuel Stauffer).		
 	    	</li>
-	    </ul>	
+	    	<li>Many plugins were inspired by existing <i>Munin Plugins</i>
+	    		developed by other people. (Before developing any plugins, I
+	    		always try to check existing solutions.)
+	    	</li>
+	    </ul>
 	    
-	    <h2>License</h2>
-	    <p>
-	    PyMunin is copyrighted free software made available under the terms of the 
-	    GPL License Version 3 or later.
-	    See the file COPYING that acompanies the code for full licensing information.
+	    <p>I hope that more people will be using <i>PyMunin</i> for developing
+	    plugins in the future.
+
 	    </div>
 	    
 	    <div class="tabbertab">
@@ -232,7 +243,7 @@
 	    <div class="tabbertab">
 	    <h2>Download</h2>
 	    <p>
-	    New versions of the code will be published for download at 
+	    New versions of the code are be published for download at 
 	    <a href="http://pypi.python.org/pypi/PyMunin">PyPI - the Python Package Index</a>
 	    periodically.
 	    <p>
@@ -273,19 +284,22 @@
 	     
 	    This will install _pymunin_ and _pysysinfo_ in <i>Python</i> site packages.
 	    The plugins will be unpacked as console scripts into the install <i>bin</i>
-		directory. Each of the scripts will be prefixed with pymunin 
+		directory. Each of the scripts will be prefixed with <i>pymunin-</i> 
 		(i.e. pymunin-apachestats) to avoid name collisions with other binaries.
 		The location will be <i>/usr/local/bin/</i> if installed globally or 
-		<i>$VIRTUAL_ENV/bin</i> if installed in with 
+		<i>$VIRTUAL_ENV/bin</i> if installed with 
 		<a href="http://www.virtualenv.org/">virtualenv</a>.
 		<p>
 		The plugins will automatically be installed in 
 		<i>Munin Plugins</i> directory (<i>/usr/share/munin/plugins</i>)
-		if the installation process is executed with a privileged user.
-		If the installation process fails because of permissions problems 
+		if the installation process is executed with a privileged user and the 
+		<i>pymunin-</i> prefix will be dropped in the process. (The location 
+		will be <i>$VIRTUAL_ENV/share/munin/plugins</i> if 
+		installed with <a href="http://www.virtualenv.org/">virtualenv</a>.)
+		<p> If the installation process fails while copying the plugin scripts 
+		to <i>Munin Plugin Directory</i> because of permissions problems
 		<i>pymunin-install</i> script will be  created for copying the plugins 
-		from the <i>bin</i> directory to <i>/usr/share/munin/plugins</i>. The 
-		pymunin prefix will be dropped in the process. 
+		from the <i>bin</i> directory to <i>/usr/share/munin/plugins</i>.
 	    
 	    <h3>Manual Installation</h3>
 	    <h4>Installation of the Libraries</h4>
