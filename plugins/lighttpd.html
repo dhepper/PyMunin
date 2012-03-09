@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PyMunin - Apache Multigraph Munin Plugin</title>
+  <title>PyMunin - Lighttpd Multigraph Munin Plugin</title>
   <meta charset='utf-8'>
   <meta http-equiv="Content-Language" content="en">
-  <meta name="description" content="PyMunin Munin Multigraph Monitoring Plugin for Apache in Python.">
-  <meta name="keywords" content="PyMunin, Munin, Plugin, Python, Multigraph, Monitoring, Apache">
+  <meta name="description" content="PyMunin Munin Multigraph Monitoring Plugin for Lighttpd in Python.">
+  <meta name="keywords" content="PyMunin, Munin, Plugin, Python, Multigraph, Monitoring, Lighttpd">
   <link href="../style.css" rel="stylesheet" type="text/css">
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -25,31 +25,19 @@
   <div id="container">
 
     <h1><a href="../index.html">PyMunin</a>
-      <span class="small">Apache Web Server Plugin</span></h1>
+      <span class="small">Lighttpd Web Server Plugin</span></h1>
 
     <div class="description">
-	    PyMunin Multigraph Munin Plugin for monitoring Apache Web Server.
+	    PyMunin Multigraph Munin Plugin for monitoring Lighttpd Web Server.
     </div>
 
-    <h2>Apache Web Server Plugin - apachestats</h2>
+    <h2>Lighttpd Web Server Plugin - lighttpdstats</h2>
     <p>The multigraph plugin implements the following graphs:
     <ul>
-      <li>apache_access
-      <li>apache_bytes
-      <li>apache_workers
+      <li>lighttpd_access
+      <li>lighttpd_bytes
+      <li>lighttpd_servers
     </ul>
-
-    <h2>Sample Graphs</h2>
-    <p>
-      <table summary="Sample Graphs">
-        <tr valign=top>
-          <td><img src="./img/apache_access-day.png" alt="Apache Access"></td>
-          <td><img src="./img/apache_bytes-day.png" alt="Apache Traffic"></td>
-        </tr>
-        <tr valign=top>
-          <td><img src="./img/apache_workers-day.png" alt="Apache Workers"></td>
-        </tr>
-      </table>
       
     <h2>Environment Variables</h2>
     <p>
@@ -60,12 +48,12 @@
     	</tr>
     	<tr>
     		<td>host</td>
-    		<td>Apache Web Server Host.<br>
+    		<td>Lighttpd Web Server Host.<br>
     			(Default: 127.0.0.1)</td>
     	</tr>
     	<tr>
     		<td>port</td>
-    		<td>Apache Web Server Port.
+    		<td>Lighttpd Web Server Port.
     			(Default: 80, SSL: 443)</td>
     	</tr>
     	<tr>
@@ -80,7 +68,7 @@
     	</tr>
   	    <tr>
     		<td>statuspath</td>
-    		<td>Path for Apache Web Server Status Page.<br>
+    		<td>Path for Lighttpd Web Server Status Page.<br>
     			(Default: server-status)
     		</td>
     	</tr>
