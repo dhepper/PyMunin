@@ -4,8 +4,8 @@
   <title>PyMunin - Python Multigraph Munin Plugins</title>
   <meta charset='utf-8'>
   <meta http-equiv="Content-Language" content="en">
-  <meta name="description" content="PyMunin - Python Module for Munin Multigraph Monitoring Plugins. Plugins for Apache, Tomcat, Asterisk, Disk I/O, Disk Usage, FreeSWITCH, Lighttpd, Memcached, MySQL, Network Interfaces, Network Connections, Nginx, NTP, PHP APC, PHP FPM, PostgreSQL, System CPU and Memory Utilization, VM Paging and Swapping, etc.">
-  <meta name="keywords" content="PyMunin, Munin, Plugin, Python, Multigraph, Monitoring, Apache, Tomcat, PHP, APC, FPM, Asterisk, FreeSWITCH, Lighttpd, Memcached, MySQL, Network, Interfaces, Connections, Nginx, NTP, PostgreSQL, System, CPU, Memory, Disk Usage, Disk I/O, Processes, Forks, Interrupts">
+  <meta name="description" content="PyMunin - Python Module for Munin Multigraph Monitoring Plugins. Plugins for Apache, Tomcat, Asterisk, Disk I/O, Disk Usage, FreeSWITCH, Lighttpd, Memcached, MySQL, Network Interfaces, Network Connections, Nginx, NTP, PHP APC, PHP FPM, PostgreSQL, Varnish Cache, System CPU and Memory Utilization, VM Paging and Swapping, etc.">
+  <meta name="keywords" content="PyMunin, Munin, Plugin, Python, Multigraph, Monitoring, Apache, Tomcat, PHP, APC, FPM, Asterisk, FreeSWITCH, Lighttpd, Memcached, MySQL, Network, Interfaces, Connections, Nginx, NTP, PostgreSQL, Varnish, Cache, System, CPU, Memory, Disk Usage, Disk I/O, Processes, Forks, Interrupts">
   <link href="style.css" rel="stylesheet" type="text/css">
   <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -46,9 +46,9 @@
 
 	    <p>Multigraph Plugins for Apache Web Server, Apache Tomcat, 
 	      APC PHP Cache, PHP FPM (Fast Process Manager), Asterisk, FreeSWITCH, 
-	      Lighttpd, Memcached, MySQL Database, Nginx, NTP, PostgreSQL Database, 
-	      CPU Utilization, Memory Utilization, Disk Usage, Disk I/O, 
-	      Network Interfaces, Processes and Threads, etc.
+	      Lighttpd, Memcached, MySQL Database, Nginx, NTP, PostgreSQL Database,
+	      Varnish Cache, CPU Utilization, Memory Utilization, Disk Usage, 
+	      Disk I/O, Network Interfaces, Processes and Threads, etc.
 	      
     </div>
     
@@ -58,6 +58,14 @@
 	    <h2>Updates</h2>
 	    <p>
 	    <table summary="Updates" cellpadding=10px>
+	    	<tr>
+	    		<td valign=top><b>Mar 14, 2012</b></td>
+	    		<td valign=top>
+	    			Add plugin for Varnish Cache. More graphs can be implemented,
+	    			but I still do not have a clear understanding of many
+	    			stats items from varnishstat.
+	    		</td>
+	    	</tr>
 	    	<tr>
 	    		<td valign=top><b>Mar 9, 2012</b></td>
 	    		<td valign=top>
@@ -263,6 +271,7 @@
 	      <li><a href="./plugins/process.html">Processes and Threads</a>
 	      <li><a href="./plugins/system.html">System Resources</a>
 	      <li><a href="./plugins/wanpipe.html">Sangoma Wanpipe Telephony Interfaces</a>
+	      <li><a href="./plugins/varnish.html">Varnish Cache Web Application Accelerator</a>
 	    </ul>
 	    </div>
 	    
